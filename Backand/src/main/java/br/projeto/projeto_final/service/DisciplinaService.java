@@ -34,7 +34,7 @@ public class DisciplinaService {
 
         novaDisciplina.setNome(disciplina.getNome());
         novaDisciplina.setCghSemanal(disciplina.getCghSemanal());
-        novaDisciplina.setId(disciplina.getId());
+        novaDisciplina.setCodigoDisciplina(disciplina.getCodigoDisciplina());
         repository.save(novaDisciplina);
     }
 }

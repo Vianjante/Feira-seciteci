@@ -10,5 +10,5 @@ import java.util.List;
 
 @Repository
 public interface EventoRepository extends JpaRepository<Evento, Long> {
-    List<Funcionario> findByNome(String nome);
+    Evento findByNome(String nome);
 }

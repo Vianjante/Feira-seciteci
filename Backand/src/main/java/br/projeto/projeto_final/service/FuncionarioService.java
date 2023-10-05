@@ -37,7 +37,7 @@ public class FuncionarioService {
       return funcionarioRepository.findByCpf(cpf);
     }
 
-    public List<Funcionario> listarPorEmail(String email){
+    public Funcionario listarPorEmail(String email){
       return funcionarioRepository.findByEmail(email);
     }
 
@@ -45,8 +45,7 @@ public class FuncionarioService {
         Funcionario funcionario = funcionarioRepository.findById(id)
                 .orElseThrow(() -> new FuncionarioNotFoundException("Funcionário não encontrado com o ID: " + id));
 
-       funcionario.setId(novoFuncionario.getId());
-        // Atualize os campos do funcionário existente com os dados do novo funcionário
+        funcionario.setId(novoFuncionario.getId());
         funcionario.setNome(novoFuncionario.getNome());
         funcionario.setCpf(novoFuncionario.getCpf());
         funcionario.setCargo(novoFuncionario.getCargo());

@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
     List<Funcionario> findByNome(String nome);
     List<Funcionario> findByCpf(String cpf);
-    List<Funcionario> findByEmail(String email);
+    Funcionario findByEmail(String email);
     void  deleteByEmail(String email);
     List<Funcionario> findByCidade(String cidade);
 

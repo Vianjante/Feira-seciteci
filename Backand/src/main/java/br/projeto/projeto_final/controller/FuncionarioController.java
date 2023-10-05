@@ -72,6 +72,7 @@ public class FuncionarioController {
     }
 
 
+
     @PutMapping("/atualizar{id}")
     public ResponseEntity atualizar(@PathVariable Long id, @RequestBody Funcionario funcionario){
         try {

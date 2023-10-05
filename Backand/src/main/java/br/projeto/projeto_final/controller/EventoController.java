@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/evento")
+@RequestMapping("/rest/evento")
 public class EventoController {
 
     @Autowired

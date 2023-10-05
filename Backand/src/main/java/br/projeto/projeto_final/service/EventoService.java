@@ -22,6 +22,10 @@ public class EventoService {
         return repository.findAll();
     }
 
+    public Evento EventoNome(String nome){
+       return repository.findByNome(nome);
+    }
+
     public void deletar(Long id){
         repository.findById(id);
         repository.deleteById(id);

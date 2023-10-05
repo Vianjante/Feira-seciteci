@@ -72,9 +72,16 @@ public class Funcionario {
     @NotBlank(message = "Campo não  inserido")
     private String casaApartamento;
 
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<EventoFuncionario> eventos;
 
-    public Funcionario(  String nome, String cpf, String email, String data_nascimento, String cargo, String emAtividade, String atuacao, String formacao, Float renumeracao,String cidade, String bairro, String rua, String casaApartamento) {
+    @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Disciplina> disciplinas;
 
+    public Funcionario( Long id, String nome, String cpf, String email, String data_nascimento, String cargo, String emAtividade, String atuacao, String formacao, Float renumeracao,String cidade, String bairro, String rua, String casaApartamento) {
+            this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;

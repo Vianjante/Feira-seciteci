@@ -4,13 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -38,23 +32,24 @@ public class Evento {
     private String descricao;
 
     @NotBlank(message = "Campo não  inserido")
+    private Integer duração_prevista;
+
+    @NotBlank(message = "Campo não  inserido")
     private String local;
 
     @NotBlank(message = "Campo não  inserido")
     private String data_inicio;
 
-    @NotBlank(message = "Campo não  inserido")
-    private String hora_inicio;
+    @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<EventoFuncionario> eventos;
 
-    @NotBlank(message = "Campo não  inserido")
-    private Integer duração_prevista;
-
-
-    public Evento(String nome, String descricao, String local, String data_inicio, Integer duração_prevista) {
+    public Evento(Long id, String nome, String descricao, Integer duração_prevista, String local, String data_inicio, String hora_inicio) {
+        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
+        this.duração_prevista = duração_prevista;
         this.local = local;
         this.data_inicio = data_inicio;
-        this.duração_prevista = duração_prevista;
     }
 }
